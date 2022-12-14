@@ -17,16 +17,14 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  list<string> ssidList {
-    "aaaaaaaaaaaaa",
-  };
+  list<string> ssidList {};
   
-  // ifstream infile(argv[2]);
-  // string line;
-  // for(string line; getline(infile, line);) {
-  //   ssidList.push_back(line);
-  // }
-  // infile.close();
+  ifstream infile(argv[2]);
+  string line;
+  for(string line; getline(infile, line);) {
+    ssidList.push_back(line);
+  }
+  infile.close();
   
   for (string ssid: ssidList) {
     cout << ssid << '\n';

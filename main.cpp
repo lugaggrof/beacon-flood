@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
   list<string> ssidList;
   
-  ifstream infile("ssid.txt");
+  ifstream infile(argv[2]);
   string line;
   for(string line; getline(infile, line);) {
     ssidList.push_back(line);
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
     beacon.supported_rates({ 1.0f, 5.5f, 11.0f });
     tap.inner_pdu(beacon);
 
-    PacketSender sender("ens33");
+    PacketSender sender(argv[1]);
     sender.send(tap);
     usleep(1000);
 
